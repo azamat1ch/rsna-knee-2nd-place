@@ -1,0 +1,21 @@
+{
+  "id": "azamat1ch/rsna-knee-2nd-place-stores",
+  "title": "rsna-knee-2nd-place-stores",
+  "code_file": "../../knee/stores.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": [
+    "azamat1ch/rsna-knee-2nd-place-code"
+  ],
+  "competition_sources": [
+    "rsna-knee-abnormality-detection"
+  ],
+  "model_sources": [],
+  "kernel_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+  "docker_image_pinning_type": "original"
+}

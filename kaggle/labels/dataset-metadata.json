@@ -1,0 +1,8 @@
+{
+  "title": "rsna-knee-2nd-place-labels",
+  "id": "azamat1ch/rsna-knee-2nd-place-labels",
+  "subtitle": "Training labels, RSNA Knee 2nd place: model answers, teachers, tables",
+  "description": "See README.md. Private: holds study IDs and report quotes.",
+  "licenses": [{"name": "CC-BY-NC-4.0"}],
+  "isPrivate": true
+}

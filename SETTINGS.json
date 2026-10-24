@@ -1,0 +1,13 @@
+{
+ "_note": "Default locations. predict.py uses the Kaggle paths; every other command takes its paths as arguments (docs/training.md). Nothing reads this file.",
+ "COMPETITION_DATA_DIR_KAGGLE": "/kaggle/input/competitions/rsna-knee-abnormality-detection/",
+ "KAGGLE_INPUT_DIR": "/kaggle/input/",
+ "SUBMISSION_FILE": "/kaggle/working/submission.csv",
+ "MEMBER_OUTPUTS_DIR": "/kaggle/working/blend/",
+ "COMPETITION_DATA_DIR_LOCAL": "data/competition/",
+ "STORES_DIR": "data/stores/",
+ "LABELS_INPUTS_DIR": "data/labels/",
+ "LABEL_TABLES_DIR": "data/labels/tables/",
+ "RUNS_DIR": "runs/",
+ "MODELS": "the models dataset, one folder per member (<member>/seed-<seed>.pt); each file is pinned by SHA-256 in configs/"
+}

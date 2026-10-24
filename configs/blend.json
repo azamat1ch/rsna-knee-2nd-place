@@ -1,0 +1,109 @@
+{
+  "competition": "rsna-knee-abnormality-detection",
+  "models_dataset": "azamat1ch/rsna-knee-2nd-place-models",
+  "time": {
+    "limit_s": 31680,
+    "reserve_s": 300,
+    "min_budget_s": 300,
+    "deadline_margin_s": 600
+  },
+  "specialist_share": 0.2,
+  "members": [
+    {
+      "name": "crop-convnext",
+      "weight": 0.25,
+      "recipe": "configs/crop-convnext.json"
+    },
+    {
+      "name": "window-convnext",
+      "weight": 0.2,
+      "recipe": "configs/window-convnext.json"
+    },
+    {
+      "name": "window-effnet",
+      "weight": 0.2,
+      "recipe": "configs/window-effnet.json"
+    },
+    {
+      "name": "mil-reader",
+      "weight": 0.35,
+      "external": {
+        "entry": "reader/infer_c.py",
+        "code": {
+          "reader/canonical.py": "ee91ee5a7fa90f0052616ef7be252b42c3eb3215d56ec084c42686703118f31e",
+          "reader/geo.py": "0ac4a85feac1d51b45fdd6527503e111f7b179d47b088e8a84f08eebf3b5719c",
+          "reader/infer_c.py": "124ebd4a944c36907f1e3f850fbf9d0a7da15c07dab01ebd3bc2a7913c642e4e",
+          "reader/knee.py": "560565376bc31654653ce5517ad07a616d243047c9085c6d9aca34e11a5edaf2",
+          "reader/preprocess.py": "231cc88bb801d268105a0069948f76672ba773390af8525c265325a90f5fff98",
+          "reader/seqtype.py": "889beebae8751202914dab3f619a92217e02440c56b99cc5264f2edfef99abbf",
+          "reader/views.py": "671442094c849ec02d07efe904aaa8e7e6a25df509e9f8947f6ec8b2ffb190e3"
+        },
+        "models": {
+          "mil-reader/seed-0.pt": "f9ea4cd3b00e993d328dfdcc37919226bf414055476257d45c212dcde4fdc796",
+          "mil-reader/seed-1.pt": "9cb24633f412068a63875fc56495fad6fc0aa187ae12c0cd75f0fd85cbc5d171",
+          "mil-reader/seed-2.pt": "7c750f946be800e0ac5ba29dc18ee8ba2b56cc66de7e48618614a658166dd26a",
+          "mil-reader/seed-3.pt": "0a78d8ae50b0315fed465373ecec4bd3f04aea09fdd6ae62180f6ec065481b9b",
+          "mil-reader/seed-4.pt": "24fbc9fe4f44470ffa961b5a7f24adcbda490ab3363d5302c3ae75962fcad07e"
+        },
+        "side_model": {
+          "mil-reader/side-model.pt": "94c897032f4f497981e88052316ad78ea92a302b3836f5aea676df3cf32ef17a"
+        },
+        "dtype": "float16"
+      }
+    },
+    {
+      "name": "pf-specialist",
+      "findings": [
+        "PF OA"
+      ],
+      "cap_s": 5400,
+      "external": {
+        "entry": "v731/kaggle_infer.py",
+        "code": {
+          "reader/canonical.py": "ee91ee5a7fa90f0052616ef7be252b42c3eb3215d56ec084c42686703118f31e",
+          "reader/geo.py": "0ac4a85feac1d51b45fdd6527503e111f7b179d47b088e8a84f08eebf3b5719c",
+          "reader/infer_c.py": "124ebd4a944c36907f1e3f850fbf9d0a7da15c07dab01ebd3bc2a7913c642e4e",
+          "reader/knee.py": "560565376bc31654653ce5517ad07a616d243047c9085c6d9aca34e11a5edaf2",
+          "reader/preprocess.py": "231cc88bb801d268105a0069948f76672ba773390af8525c265325a90f5fff98",
+          "reader/seqtype.py": "889beebae8751202914dab3f619a92217e02440c56b99cc5264f2edfef99abbf",
+          "reader/views.py": "671442094c849ec02d07efe904aaa8e7e6a25df509e9f8947f6ec8b2ffb190e3",
+          "v731/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "v731/bands.py": "8e4b3cce68c4e3d3d42f4932c2a07d1dcc4ff27cf3862b3463bf037205fc1291",
+          "v731/dataset.py": "97036e5c8ef378546afd8735e9224411fad1034aa5d2146e9ea84c243300b7b9",
+          "v731/kaggle_infer.py": "aa9aae0c7eb79ed942e3264b318f749a77289ec0cfd19123db6c58350f9c7b8f",
+          "v731/kseries.py": "438442c0b01c4397f97c921ee8a6e904a1af318dedf30b38a3aa511c01df1819",
+          "v731/manifest.py": "43df12df48348230db5a9ed71c2bf162b4c03cd3c86ffee5e127939124c47f77",
+          "v731/model.py": "24b8112d2ad18e005adeb33a372d48b2f16e32e45128aafd874a936f41841bae",
+          "v731/prepare_native.py": "6254dce66b598e38042c59fd133b772c44e01401441c6f7805c6b8f7ceae14a5",
+          "v731/round2.py": "6e324026b2767e46ba6f6b6474f5f100998e764e808089e49ba2b12f446ead1b",
+          "v8prep/headers.py": "306fcf63aa177f2099c43ab18ff952aaf4203cb29145afa6195bff888e329132"
+        },
+        "models": {
+          "pf-specialist/seed-0.pt": "4d11c875d49f1f55684c62582f0d4bf031c041a520ba2c75e8cd09922053d922",
+          "pf-specialist/seed-1.pt": "95ab6da1d14def92ad1d9110f85e82cde39c9f14d582ac2b29d41a306a7e3c67",
+          "pf-specialist/seed-2.pt": "b84333cb38c66946f6f050a8fd3786ad2e794783088930aeadc68ee771615340"
+        },
+        "side_model": {
+          "mil-reader/side-model.pt": "94c897032f4f497981e88052316ad78ea92a302b3836f5aea676df3cf32ef17a"
+        },
+        "workers": 4,
+        "dtype": "float16"
+      }
+    },
+    {
+      "name": "lateral-effnet",
+      "findings": [
+        "Lateral Meniscus",
+        "Lateral OA"
+      ],
+      "cap_s": 6300,
+      "recipe": "configs/lateral-effnet.json"
+    }
+  ],
+  "wheels": {
+    "pylibjpeg-2.1.0-py3-none-any.whl": "25df9496a69e64e98c887fddee12a1271e275b5f74ba804f9bf98a08bb80993e",
+    "pylibjpeg_libjpeg-2.4.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl": "d2c8da12c79d1f46596b89df94091be01f932d739613e8af93d1d557ac3bab74",
+    "pylibjpeg_openjpeg-2.6.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": "3e8ee9e5bd3b62766ca98fc143cd340633e60bb14450162426f32688908ad9e8",
+    "python_gdcm-3.2.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl": "69c987d3f1b3a2a9936288f312f1ea2192e39fa6c0be28159b06a1906b8d56ed"
+  }
+}

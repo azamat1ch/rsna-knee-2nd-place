@@ -1,0 +1,86 @@
+{
+  "name": "lateral-effnet",
+  "family": "tile",
+  "about": "EfficientNetV2-S, two branches: an 84 mm lateral-compartment crop cut from the scanner's pixels (288 px) and a 160 mm whole-knee view (224 px), joined by a per-exam gate. Used for Lateral Meniscus and Lateral OA only.",
+  "encoder": {
+    "timm": "tf_efficientnetv2_s",
+    "start_weights": {
+      "repo": "timm/tf_efficientnetv2_s.in21k_ft_in1k",
+      "revision": "ea9abc143ea2b9d8e1ec1de277bce02149b9cf0e",
+      "file": "model.safetensors",
+      "sha256": "6f1933fb6c0d760eae03863ad0110570393e16c0610f8fe94dc9f978e52ec59c"
+    },
+    "mean": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "std": [
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "inputs": {
+    "crop": "lateral",
+    "size": 288,
+    "context_size": 224,
+    "context_mm": 160,
+    "views_per_slot": 16,
+    "slab_mm": 3.0,
+    "thin_below_mm": 2.0,
+    "series_rule": "prefer-2d",
+    "frozen_batchnorm": true
+  },
+  "train": {
+    "labels": "expert-pf-lateral.csv",
+    "folds": "folds.csv",
+    "with_58": false,
+    "epochs": 15,
+    "batch": 4,
+    "micro_batches": 4,
+    "lr": 0.0002,
+    "weight_decay": 0.01,
+    "warmup": 0.05,
+    "ema": 0.999,
+    "amp": "fp16",
+    "grad_scale": 1024,
+    "augment": "tile",
+    "seeds": [
+      20261101,
+      20261102,
+      20261103
+    ]
+  },
+  "infer": {
+    "offsets": [
+      0,
+      1,
+      2
+    ],
+    "precision": "fp16",
+    "seed_average": "probability",
+    "prior": [
+      0.14158342922899228,
+      0.04078481012658249,
+      0.4027456846950444,
+      0.18692520138088972,
+      0.22525431530494283,
+      0.09191254315304995,
+      0.22701495972381805,
+      0.3686674338319861,
+      0.3245155350978072,
+      0.20302876869964936,
+      0.15474798619101776,
+      0.06655005753739672
+    ]
+  },
+  "weights": {
+    "dataset": "azamat1ch/rsna-knee-2nd-place-models",
+    "files": {
+      "lateral-effnet/seed-20261101.pt": "7a92fcfb0a4044990dd36d5d9f9d17e150d527c9b10ca76aed173a8cb7612184",
+      "lateral-effnet/seed-20261102.pt": "97288d3821a3b1912273e20a8fabd08f51eb6c21b78a29c9a34fcaaf5e2148a0",
+      "lateral-effnet/seed-20261103.pt": "7fbd052a64cbda48a5bfd13896f41508b3c5507495a3bb535f4c89ce28bba370"
+    }
+  }
+}

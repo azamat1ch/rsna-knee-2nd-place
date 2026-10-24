@@ -1,0 +1,91 @@
+{
+  "name": "window-effnet",
+  "family": "window",
+  "about": "As window-convnext with EfficientNetV2-S at 320 px, frozen batch norm, bf16 training and the expert+reader label table.",
+  "encoder": {
+    "timm": "tf_efficientnetv2_s",
+    "start_weights": {
+      "repo": "timm/tf_efficientnetv2_s.in21k_ft_in1k",
+      "revision": "ea9abc143ea2b9d8e1ec1de277bce02149b9cf0e",
+      "file": "model.safetensors",
+      "sha256": "6f1933fb6c0d760eae03863ad0110570393e16c0610f8fe94dc9f978e52ec59c"
+    },
+    "mean": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "std": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "drop_path": 0.0
+  },
+  "inputs": {
+    "store_size": 320,
+    "crop": 320,
+    "shift_px": 16,
+    "slices": 3,
+    "slab_mm": 3.5,
+    "thin_below_mm": 1.75,
+    "local_mm": 100,
+    "stride": 3,
+    "max_windows": 352,
+    "slice_jitter": 0.25,
+    "series_rule": "prefer-2d"
+  },
+  "train": {
+    "labels": "expert-reader-58.csv",
+    "folds": "folds-58.csv",
+    "with_58": true,
+    "epochs": 15,
+    "batch": 2,
+    "lr": 0.0001,
+    "head_lr": 0.001,
+    "weight_decay": 0.05,
+    "warmup": 0.05,
+    "ema": 0.999,
+    "amp": "bf16",
+    "clip_grad": 5.0,
+    "frozen_batchnorm": true,
+    "skip_nonfinite": 20,
+    "augment": "window",
+    "seeds": [
+      20261121,
+      20261122,
+      20261123
+    ]
+  },
+  "infer": {
+    "offsets": [
+      0,
+      1,
+      2
+    ],
+    "precision": "fp16",
+    "seed_average": "logit",
+    "prior": [
+      0.143729,
+      0.04231,
+      0.403309,
+      0.188455,
+      0.226562,
+      0.096092,
+      0.281261,
+      0.372125,
+      0.327437,
+      0.204068,
+      0.155881,
+      0.068657
+    ]
+  },
+  "weights": {
+    "dataset": "azamat1ch/rsna-knee-2nd-place-models",
+    "files": {
+      "window-effnet/seed-20261121.pt": "0cd9793993a165382e9f1ddee076ebbafa7f4895cd637f77e55bca3b8ee701d0",
+      "window-effnet/seed-20261122.pt": "ba0519ee912f31a212e5d90a54d0a24631f11d1c6d49cb709c59ef7075f5e888",
+      "window-effnet/seed-20261123.pt": "89f315ea4a8242e86f347b667363b8e97abaee95a424c5e1e591232cdfa50b9f"
+    }
+  }
+}

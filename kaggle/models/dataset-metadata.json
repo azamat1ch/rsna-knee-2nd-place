@@ -1,0 +1,12 @@
+{
+  "title": "rsna-knee-2nd-place-models",
+  "id": "azamat1ch/rsna-knee-2nd-place-models",
+  "subtitle": "Trained weights of the six members of the RSNA Knee 2nd place solution",
+  "description": "Weights of all six blend members, one folder per member: crop-convnext, lateral-effnet, window-convnext and window-effnet (3 seeds each, `seed-N.pt`), and Matthew Liew's mil-reader (5 seeds plus `side-model.pt`) and pf-specialist (3 seeds). The sha256 of every file is pinned in the code dataset (the member configs and `configs/blend.json`).",
+  "licenses": [
+    {
+      "name": "CC-BY-NC-4.0"
+    }
+  ],
+  "isPrivate": false
+}

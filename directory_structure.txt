@@ -1,0 +1,103 @@
+.
+├── configs/
+│   ├── labels/
+│   │   ├── blind-lateral.md
+│   │   ├── expert-findings.md
+│   │   ├── expert.md
+│   │   └── reader.md
+│   ├── blend.json
+│   ├── crop-convnext.json
+│   ├── lateral-effnet.json
+│   ├── window-convnext.json
+│   └── window-effnet.json
+├── docs/
+│   ├── experiments.md
+│   ├── labels.md
+│   ├── method.md
+│   ├── results.md
+│   ├── training.md
+│   └── verification.md
+├── external/
+│   ├── reader/
+│   │   ├── canonical.py
+│   │   ├── geo.py
+│   │   ├── infer_c.py
+│   │   ├── knee.py
+│   │   ├── preprocess.py
+│   │   ├── seqtype.py
+│   │   └── views.py
+│   ├── train/
+│   │   ├── encoder/
+│   │   │   ├── prep_fastmri.py
+│   │   │   └── pretrain_fastmri.py
+│   │   ├── mil-reader/
+│   │   │   ├── build_cache.py
+│   │   │   ├── build_views.py
+│   │   │   ├── make_targets.py
+│   │   │   ├── side_classifier.py
+│   │   │   ├── side_notebook.py
+│   │   │   └── train.py
+│   │   ├── pf-specialist/
+│   │   │   ├── e3.json
+│   │   │   ├── native.py
+│   │   │   ├── oai_inputs.py
+│   │   │   ├── oai_join.py
+│   │   │   └── train.py
+│   │   ├── common.py
+│   │   ├── README.md
+│   │   └── requirements.txt
+│   ├── v731/
+│   │   ├── __init__.py
+│   │   ├── bands.py
+│   │   ├── dataset.py
+│   │   ├── kaggle_infer.py
+│   │   ├── kseries.py
+│   │   ├── manifest.py
+│   │   ├── model.py
+│   │   ├── prepare_native.py
+│   │   └── round2.py
+│   ├── v8prep/
+│   │   └── headers.py
+│   └── LICENSE-APACHE
+├── kaggle/
+│   ├── code/
+│   │   └── dataset-metadata.json
+│   ├── labels/
+│   │   ├── README.md
+│   │   └── dataset-metadata.json
+│   ├── models/
+│   │   └── dataset-metadata.json
+│   ├── predict/
+│   │   └── kernel-metadata.json
+│   └── stores/
+│       └── kernel-metadata.json
+├── knee/
+│   ├── __init__.py
+│   ├── blend.py
+│   ├── centre.py
+│   ├── dicom.py
+│   ├── external.py
+│   ├── infer.py
+│   ├── labels.py
+│   ├── models.py
+│   ├── panels.py
+│   ├── score.py
+│   ├── series.py
+│   ├── stores.py
+│   ├── tiles.py
+│   ├── train.py
+│   └── windows.py
+├── tests/
+│   ├── data/
+│   │   └── blend_fixture.npz
+│   ├── test_blend.py
+│   └── test_score.py
+├── .gitignore
+├── LICENSE
+├── NOTICE.md
+├── README.md
+├── SETTINGS.json
+├── directory_structure.txt
+├── entry_points.md
+├── predict.py
+└── requirements.txt

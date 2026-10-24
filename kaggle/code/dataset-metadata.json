@@ -1,0 +1,12 @@
+{
+  "title": "rsna-knee-2nd-place-code",
+  "id": "azamat1ch/rsna-knee-2nd-place-code",
+  "subtitle": "Inference code, configs and offline DICOM decoder wheels, RSNA Knee 2nd place",
+  "description": "The `knee` package, `configs/` (member recipes and the blend), `external/` (Matthew Liew's inference code for mil-reader and pf-specialist, unchanged), `predict.py` and `wheels/` (pylibjpeg, pylibjpeg-libjpeg, pylibjpeg-openjpeg, python-gdcm for Python 3.13; each wheel keeps its own licence), installed offline by `predict.py`.",
+  "licenses": [
+    {
+      "name": "CC-BY-NC-4.0"
+    }
+  ],
+  "isPrivate": false
+}

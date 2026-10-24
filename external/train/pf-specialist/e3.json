@@ -1,0 +1,41 @@
+{
+ "schema": "v731-pf-specialist-1",
+ "variant": "e3",
+ "groups": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ "grade_head": true,
+ "oai": {
+  "oai_per_competition_row": 0.25,
+  "lambda_grade": 1.0
+ },
+ "recipe": {
+  "backbone": "convnext_tiny",
+  "drop_path": 0.1,
+  "grad_ckpt": true,
+  "dim": 384,
+  "depth": 2,
+  "heads": 8,
+  "ffn": 768,
+  "drop": 0.2,
+  "tf_dropout": 0.1,
+  "chunk": 64,
+  "res_wp": 256,
+  "res_zk": 512,
+  "fov": 0.92,
+  "p_resize": 384,
+  "k": 8,
+  "k_eval": 12,
+  "lr_enc": 0.0001,
+  "lr_head": 0.0005,
+  "wd": 0.02,
+  "clip": 3.0,
+  "bs": 8,
+  "accum": 2,
+  "eval_bs": 2,
+  "epochs": 14,
+  "warmup_epochs": 1,
+  "ema": 0.998,
+  "seed": 0,
+  "precision": "bf16",
+  "pad_chunks": true
+ }
+}

@@ -1,0 +1,83 @@
+{
+  "name": "crop-convnext",
+  "family": "tile",
+  "about": "ConvNeXt-T over 3-slice tiles of knee-centred crops (384 px) from up to 6 series, gated attention pooling per finding.",
+  "encoder": {
+    "timm": "convnext_tiny",
+    "start_weights": {
+      "repo": "timm/convnext_tiny.fb_in22k_ft_in1k_384",
+      "revision": "32c741ba106f9e062174ef829354a16719c3dcac",
+      "file": "model.safetensors",
+      "sha256": "a5cbe10cfa2e90ec787a082253033ac0a61de0264b68210815a988e53a1a5d7c"
+    },
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "inputs": {
+    "crop": "knee",
+    "size": 384,
+    "views_per_slot": 16,
+    "slab_mm": 3.0,
+    "thin_below_mm": 2.0,
+    "series_rule": "prefer-2d"
+  },
+  "train": {
+    "labels": "teacher-mix-pf-58.csv",
+    "folds": "folds-58.csv",
+    "with_58": true,
+    "epochs": 10,
+    "batch": 4,
+    "micro_batches": 4,
+    "lr": 0.0002,
+    "weight_decay": 0.01,
+    "warmup": 0.05,
+    "ema": 0.999,
+    "amp": "fp16",
+    "grad_scale": 1024,
+    "augment": "tile",
+    "seeds": [
+      20261014,
+      20261015,
+      20261016
+    ]
+  },
+  "infer": {
+    "offsets": [
+      0,
+      1,
+      2
+    ],
+    "precision": "fp16",
+    "seed_average": "probability",
+    "prior": [
+      0.14396588913013858,
+      0.042095531814671835,
+      0.4009356263229614,
+      0.18675615696116274,
+      0.22343848332727645,
+      0.09672353025210102,
+      0.3011935404496883,
+      0.36763117156484265,
+      0.3298275275266868,
+      0.1981641349965929,
+      0.14936584170565526,
+      0.06572238186236651
+    ]
+  },
+  "weights": {
+    "dataset": "azamat1ch/rsna-knee-2nd-place-models",
+    "files": {
+      "crop-convnext/seed-20261014.pt": "57f5d6037d5e98197e38e6a12023004257fdb9702a52760eac304658847587d0",
+      "crop-convnext/seed-20261015.pt": "ffec662c4696e696fac2a582cb86965c2478e5b0ee7f46a6ce11d179bc4545f0",
+      "crop-convnext/seed-20261016.pt": "2416b0d9cd1cf1375381c4fb5f0a0e0ff8a2b029c8a646730b7eecab5a4ea0b4"
+    }
+  }
+}
